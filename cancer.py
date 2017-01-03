@@ -1,5 +1,5 @@
 """Algorithme deployant une regréssion logistique pour prévoir si une tumeur du sein est bénigne ou maligne.
-
+ss
 Entête des data
     Attribute                     Domain
    -- -----------------------------------------
@@ -26,7 +26,7 @@ from sklearn import cross_validation
 import matplotlib.pyplot as plt 
 import numpy 
 #--------------------------------------------------------------Constantes
-TAILLE_TEST         =    100 
+TAILLE_TEST         =    120 
 POURCENTAGE_TRAIN   =    0.15
 #--------------------------------------------------------------PP
 def main() : 
