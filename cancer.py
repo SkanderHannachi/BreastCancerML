@@ -29,6 +29,15 @@ import numpy
 TAILLE_TEST         =    100 
 POURCENTAGE_TRAIN   =    0.15
 #--------------------------------------------------------------PP
+binai = lambda x : 4 if x <= 0.5 else 2
+#--------------------------------------------------------------
+
+def convert_bin(X) : 
+    """Fonction qui sert pour afficher des données à tester avec le modèle construit."""
+    for i in range(len(X)) : 
+        for j in range(2) :
+            X[i][j] = binai(X[i][j])
+    return X 
 def main() : 
     Brut = pandas.read_table('cancer.txt',sep=",",header=0)
     print(Brut)
@@ -57,10 +66,17 @@ def main() :
         print("Taux d'erreur = "+str(1.0 - metrics.accuracy_score(y_test,y_predict)))
     except ValueError as e:
         print(e)
-    probas = Ir.predict_proba(X_test)
-    #print(probas)
+    probas = Ir.predict_proba(X_test[10:89])
+    print("########################################################")
+    print("########################################################")
+    print("##########################TEST##########################")
+    print("Valeures exactes :")
+    print(y_test[10:89])
+    Val = convert_bin(probas)
+    print("Probabilité calculée : ")
+    print(Val[:,0])
     score = probas[:,1]
     #print(score)
-
 if __name__=='__main__' :
     main()
+       
